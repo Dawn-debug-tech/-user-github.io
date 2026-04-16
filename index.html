@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>EduQuiz Arena</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+<div class="user-box">
+
+<p id="usernameDisplay">Guest</p>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<h2 class="logo">EduQuiz</h2>
+
+<ul>
+
+<li onclick="showPage('dashboard')">🏠 Dashboard</li>
+
+<li onclick="showPage('categories')">🎮 Play Quiz</li>
+<li onclick="showPage('howto')">📘 How To Play</li>
+
+<li onclick="showPage('practice')">🧠 Practice Mode</li>
+
+<li onclick="showPage('progress')">📊 My Progress</li>
+
+<li onclick="showPage('leaderboard')">🏆 Leaderboard</li>
+
+<li onclick="showPage('daily')">🔥 Daily Challenge</li>
+
+<li onclick="showPage('profile')">👤 Profile</li>
+
+<li onclick="showPage('settings')">⚙ Settings</li>
+
+<li onclick="logout()">🚪 Logout</li>
+
+</ul>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main">
+
+<section id="dashboard" class="page active">
+
+<div class="dashboard-header">
+
+<h1>EduQuiz Arena</h1>
+
+<p>Welcome back! Ready to challenge your brain today?</p>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card">
+
+<h3>⭐ Your Level</h3>
+
+<p id="userLevel">Level 3</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>🏆 Total Score</h3>
+
+<p id="userScore">120</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>🔥 Daily Streak</h3>
+
+<p>5 Days</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>📊 Completion</h3>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="quick-actions">
+
+<h2>Quick Start</h2>
+
+<div class="action-buttons">
+
+<button onclick="showPage('categories')">Play Quiz</button>
+
+<button onclick="showPage('daily')">Daily Challenge</button>
+
+<button onclick="showPage('progress')">View Progress</button>
+
+</div>
+
+</div>
+
+</section>
+<section id="categories" class="page">
+
+<h1>Quiz Categories</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Science</h3>
+<p>Questions: 20</p>
+<p>Difficulty: Medium</p>
+<p>Completion: 40%</p>
+</div>
+
+<div class="card">
+<h3>History</h3>
+<p>Questions: 15</p>
+<p>Difficulty: Easy</p>
+<p>Completion: 70%</p>
+</div>
+
+<div class="card">
+<h3>Technology</h3>
+<p>Questions: 25</p>
+<p>Difficulty: Hard</p>
+<p>Completion: 10%</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="leaderboard" class="page">
+
+<h1>Leaderboard</h1>
+
+<div class="cards">
+
+<div class="card">🌎 Global Leaderboard</div>
+
+<div class="card">📅 Weekly Leaderboard</div>
+
+<div class="card">👥 Friends Leaderboard</div>
+
+</div>
+
+</section>
+
+<section id="progress" class="page">
+
+<h1>My Progress</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Quizzes Completed</h3>
+<p id="quizCompleted">5</p>
+</div>
+
+<div class="card">
+<h3>Correct Answers</h3>
+<p id="correctAnswers">32</p>
+</div>
+
+<div class="card">
+<h3>Achievements</h3>
+<p>Beginner Quiz Master</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="daily" class="page">
+
+<h1>Daily Challenge</h1>
+
+<div class="card">
+
+<p>Complete today's quiz to earn bonus points!</p>
+
+<button>Start Challenge</button>
+
+</div>
+
+</section>
+
+<section id="profile" class="page">
+
+<h1>Profile</h1>
+
+<div class="card">
+
+<p>Username: Player1</p>
+
+<p>Level: 3</p>
+
+<p>Total Score: 120</p>
+
+</div>
+
+</section>
+<section id="settings" class="page">
+
+<h1>Settings</h1>
+
+<div class="card">
+
+<label>Dark Mode</label> <input type="checkbox" onclick="toggleTheme()">
+
+<br><br>
+
+<label>Sound Effects</label> <input type="checkbox">
+
+<br><br>
+
+<label>Difficulty Preference</label>
+
+<select>
+
+<option>Easy</option>
+<option>Medium</option>
+<option>Hard</option>
+
+</select>
+
+</div>
+
+</section>
+
+<section id="practice" class="page">
+
+<h1>Practice Mode</h1>
+
+<div class="card">
+
+<p>
+Practice Mode lets you answer random quiz questions without affecting your score.
+Use this to improve your knowledge before playing real levels.
+</p>
+
+<button onclick="startPractice()">Start Practice</button>
+
+</div>
+
+</section>
+
+<section id="howto" class="page">
+
+<h1>How To Play</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>🎯 Objective</h3>
+<p>Answer quiz questions correctly to gain points and progress through levels.</p>
+</div>
+
+<div class="card">
+<h3>🎮 Gameplay</h3>
+<p>Select the correct option from the available answers to move to the next question.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Level System</h3>
+<p>Complete quizzes to unlock new levels and earn achievements.</p>
+</div>
+
+<div class="card">
+<h3>🏆 Scoring</h3>
+<p>Correct answers increase your score and help you climb the leaderboard.</p>
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+
+
+
+</html>
